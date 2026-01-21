@@ -9,7 +9,7 @@ def portfolio_chatbot():
     print("Type 'bye' to exit!")
     
     while True:
-        user = input("You: ").lower()
+        user = input("You: ").lower().strip()
 
         if user == "hi" or user == "hello" or user == "hey":
             print("Portfolio_Bot: Hello! Nice To Meet You. I can help you learn about Anshdeep Singh.")

@@ -1493,7 +1493,6 @@ backdrop-filter: blur(20px);
 border: 1px solid rgba(255, 255, 255, 0.1);
 border-radius: 20px;
 box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-display: flex;
 flex-direction: column;
 animation: slideUp 0.3s ease;
 }
@@ -2057,7 +2056,7 @@ height: calc(100vh - 150px);
 <div class="chatbot-messages" id="chatbotMessages">
 <div class="message bot">
 <div class="message-content">
-Hello! Hi I am Anshdeep Singh's Portfolio Chatbot. I can help you learn about Anshdeep's skills, projects, education, and more. Type 'bye' to close the chat!
+Hello! I am Anshdeep Singh's Portfolio Chatbot. I can help you learn about Anshdeep's skills, projects, education, and more. Type 'bye' to close the chat!
 </div>
 </div>
 </div>
@@ -2200,7 +2199,18 @@ function addMessage(content, isUser = false) {
 const messagesContainer = document.getElementById('chatbotMessages');
 const messageDiv = document.createElement('div');
 messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
+const contentDiv = document.createElement('div');
+contentDiv.className = 'message-content';
+
+if (isUser) {
+// For user messages, use textContent to prevent XSS
+contentDiv.textContent = content;
+} else {
+// For bot messages, allow HTML for links but sanitize
+contentDiv.innerHTML = content;
+}
+
+messageDiv.appendChild(contentDiv);
 messagesContainer.appendChild(messageDiv);
 messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }

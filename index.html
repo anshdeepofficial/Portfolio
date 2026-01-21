@@ -1442,6 +1442,262 @@ font-size: 1.6rem;
 font-size: 1.6rem;
 }
 }
+
+/* Chatbot Styles */
+.chatbot-container {
+position: fixed;
+bottom: 30px;
+right: 30px;
+z-index: 10000;
+font-family: 'Outfit', sans-serif;
+}
+
+.chatbot-button {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+border: none;
+cursor: pointer;
+box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+transition: all 0.3s ease;
+position: relative;
+animation: pulse-chat 2s infinite;
+}
+
+.chatbot-button:hover {
+transform: scale(1.1);
+box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6);
+}
+
+@keyframes pulse-chat {
+0%, 100% { box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
+50% { box-shadow: 0 8px 35px rgba(99, 102, 241, 0.7); }
+}
+
+.chatbot-window {
+display: none;
+position: fixed;
+bottom: 100px;
+right: 30px;
+width: 380px;
+max-width: calc(100vw - 60px);
+height: 550px;
+max-height: calc(100vh - 160px);
+background: var(--card-bg);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 20px;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+display: flex;
+flex-direction: column;
+animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.chatbot-window.active {
+display: flex;
+}
+
+.chatbot-header {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+padding: 20px;
+border-radius: 20px 20px 0 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.chatbot-header h3 {
+margin: 0;
+font-size: 1.2rem;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.chatbot-close {
+background: rgba(255, 255, 255, 0.2);
+border: none;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+}
+
+.chatbot-close:hover {
+background: rgba(255, 255, 255, 0.3);
+transform: rotate(90deg);
+}
+
+.chatbot-messages {
+flex: 1;
+overflow-y: auto;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+width: 6px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+background: rgba(255, 255, 255, 0.05);
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+background: rgba(99, 102, 241, 0.5);
+border-radius: 3px;
+}
+
+.message {
+display: flex;
+gap: 10px;
+animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+justify-content: flex-end;
+}
+
+.message-content {
+max-width: 75%;
+padding: 12px 16px;
+border-radius: 15px;
+font-size: 0.95rem;
+line-height: 1.5;
+}
+
+.message.bot .message-content {
+background: rgba(99, 102, 241, 0.15);
+border: 1px solid rgba(99, 102, 241, 0.3);
+border-radius: 15px 15px 15px 5px;
+}
+
+.message.user .message-content {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+border-radius: 15px 15px 5px 15px;
+}
+
+.chatbot-input-area {
+padding: 20px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+display: flex;
+gap: 10px;
+}
+
+.chatbot-input {
+flex: 1;
+padding: 12px 16px;
+background: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 25px;
+color: var(--light);
+font-size: 0.95rem;
+font-family: 'Outfit', sans-serif;
+outline: none;
+transition: all 0.3s ease;
+}
+
+.chatbot-input:focus {
+background: rgba(255, 255, 255, 0.08);
+border-color: var(--primary);
+}
+
+.chatbot-send {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+border: none;
+width: 45px;
+height: 45px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+transition: all 0.3s ease;
+}
+
+.chatbot-send:hover {
+transform: scale(1.05);
+box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.chatbot-send:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+}
+
+.chatbot-suggestions {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+padding: 0 20px 10px;
+}
+
+.suggestion-chip {
+padding: 8px 14px;
+background: rgba(99, 102, 241, 0.1);
+border: 1px solid rgba(99, 102, 241, 0.3);
+border-radius: 20px;
+font-size: 0.85rem;
+cursor: pointer;
+transition: all 0.3s ease;
+color: var(--light);
+}
+
+.suggestion-chip:hover {
+background: rgba(99, 102, 241, 0.2);
+border-color: var(--primary);
+transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+.chatbot-container {
+bottom: 20px;
+right: 20px;
+}
+
+.chatbot-button {
+width: 55px;
+height: 55px;
+font-size: 24px;
+}
+
+.chatbot-window {
+bottom: 85px;
+right: 20px;
+width: calc(100vw - 40px);
+height: calc(100vh - 150px);
+}
+}
 </style>
 </head>
 <body>
@@ -1787,6 +2043,37 @@ font-size: 1.6rem;
 </div>
 </footer>
 
+<!-- Chatbot Widget -->
+<div class="chatbot-container">
+<button class="chatbot-button" id="chatbotButton" onclick="toggleChatbot()">
+💬
+</button>
+
+<div class="chatbot-window" id="chatbotWindow">
+<div class="chatbot-header">
+<h3>🤖 Portfolio Bot</h3>
+<button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+</div>
+<div class="chatbot-messages" id="chatbotMessages">
+<div class="message bot">
+<div class="message-content">
+Hello! Hi I am Anshdeep Singh's Portfolio Chatbot. I can help you learn about Anshdeep's skills, projects, education, and more. Type 'bye' to close the chat!
+</div>
+</div>
+</div>
+<div class="chatbot-suggestions" id="chatbotSuggestions">
+<div class="suggestion-chip" onclick="sendSuggestion('skills')">Skills</div>
+<div class="suggestion-chip" onclick="sendSuggestion('projects')">Projects</div>
+<div class="suggestion-chip" onclick="sendSuggestion('contact')">Contact</div>
+<div class="suggestion-chip" onclick="sendSuggestion('education')">Education</div>
+</div>
+<div class="chatbot-input-area">
+<input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+<button class="chatbot-send" id="chatbotSend" onclick="sendMessage()">➤</button>
+</div>
+</div>
+</div>
+
 <script>
 // Mobile Menu Toggle
 const menuToggle = document.getElementById('menuToggle');
@@ -1898,6 +2185,122 @@ document.querySelectorAll('*').forEach(el => {
 el.style.animation = 'none';
 el.style.transition = 'none';
 });
+}
+
+// Chatbot Functionality
+function toggleChatbot() {
+const chatbotWindow = document.getElementById('chatbotWindow');
+chatbotWindow.classList.toggle('active');
+if (chatbotWindow.classList.contains('active')) {
+document.getElementById('chatbotInput').focus();
+}
+}
+
+function addMessage(content, isUser = false) {
+const messagesContainer = document.getElementById('chatbotMessages');
+const messageDiv = document.createElement('div');
+messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
+messagesContainer.appendChild(messageDiv);
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+function getChatbotResponse(userInput) {
+const input = userInput.toLowerCase().trim();
+
+// Chatbot logic matching the Python code style with if-elif conditions
+if (input === "hi" || input === "hello" || input === "hey") {
+return "Portfolio_Bot: Hello! Nice To Meet You. I can help you learn about Anshdeep Singh.";
+}
+else if (input === "who are you?" || input === "what is your name?") {
+return "Portfolio_Bot: I am Anshdeep Singh's portfolio chatbot. I can answer questions about Anshdeep's skills, projects, and experience.";
+}
+else if (input === "who is anshdeep?" || input === "tell me about anshdeep") {
+return "Portfolio_Bot: Anshdeep Singh is an aspiring Data Scientist & Content Creator from Punjab, India. He specializes in Python, SQL, Machine Learning, and Video Editing.";
+}
+else if (input === "what are his skills?" || input === "skills") {
+return "Portfolio_Bot: Anshdeep's key skills include Python, SQL, Machine Learning, Video Editing, Data Analysis, and Web Development.";
+}
+else if (input === "what is his education?" || input === "education") {
+return "Portfolio_Bot: Anshdeep is pursuing Bachelor of Computer Applications (Hons. with Research) in Data Science at Chandigarh University.";
+}
+else if (input === "show me his projects" || input === "projects") {
+return "Portfolio_Bot: Anshdeep has worked on: To-Do List, Employee Payroll Management System, Airplane Management System, Weather Data Analysis, Task Management Website, and Snake Game.";
+}
+else if (input === "tell me more about a project" || input === "project details") {
+return "Portfolio_Bot: Which project? Try: 'weather analysis' or 'payroll system' or 'task management'";
+}
+else if (input === "weather analysis" || input === "weather data analysis") {
+return "Portfolio_Bot: The Weather Data Analysis project analyzes weather patterns using Python. Check it out: <a href='https://github.com/Ansh200618/Weather-data-analysis' target='_blank'>GitHub Link</a>";
+}
+else if (input === "payroll system" || input === "employee payroll") {
+return "Portfolio_Bot: The Employee Payroll Management System is built with Python for managing employee records. Visit: <a href='https://github.com/Ansh200618/Employee-Payroll-Management-System' target='_blank'>GitHub Link</a>";
+}
+else if (input === "task management" || input === "task website") {
+return "Portfolio_Bot: The Task Management Website helps organize and track tasks efficiently. See: <a href='https://github.com/Ansh200618/Task-Management-Website' target='_blank'>GitHub Link</a>";
+}
+else if (input === "what certifications does he have?" || input === "certifications") {
+return "Portfolio_Bot: Anshdeep has completed certifications from IBM (Data Structures), University of Michigan (Python for AI), Infosys (Web Development), and LinkedIn Learning.";
+}
+else if (input === "how can i contact him?" || input === "contact") {
+return "Portfolio_Bot: Email: <a href='mailto:anshdeep200618@gmail.com'>anshdeep200618@gmail.com</a> | GitHub: <a href='https://github.com/Ansh200618' target='_blank'>Ansh200618</a> | LinkedIn: <a href='https://www.linkedin.com/in/anshdeep-singh-editor' target='_blank'>anshdeep-singh-editor</a> | Phone: +91 97815-70098";
+}
+else if (input === "where is he from?" || input === "location") {
+return "Portfolio_Bot: Anshdeep is from Khanna, Punjab, India.";
+}
+else if (input === "what is his github?" || input === "github") {
+return "Portfolio_Bot: GitHub: <a href='https://github.com/Ansh200618' target='_blank'>https://github.com/Ansh200618</a>";
+}
+else if (input === "what is his linkedin?" || input === "linkedin") {
+return "Portfolio_Bot: LinkedIn: <a href='https://www.linkedin.com/in/anshdeep-singh-editor' target='_blank'>https://www.linkedin.com/in/anshdeep-singh-editor</a>";
+}
+else if (input === "what is his email?" || input === "email") {
+return "Portfolio_Bot: Email: <a href='mailto:anshdeep200618@gmail.com'>anshdeep200618@gmail.com</a>";
+}
+else if (input === "does he do video editing?" || input === "video editing") {
+return "Portfolio_Bot: Yes! Anshdeep is also a Content Creator with expertise in video editing. Check his YouTube: <a href='https://www.youtube.com/@RojanaBhaktii' target='_blank'>@RojanaBhaktii</a>";
+}
+else if (input === "what is his experience?" || input === "experience") {
+return "Portfolio_Bot: Anshdeep is an aspiring Data Scientist with hands-on experience in Python development, data analysis, machine learning projects, and creative content creation.";
+}
+else if (input === "thanks" || input === "thank you") {
+return "Portfolio_Bot: No Worries, Always here to help!";
+}
+else if (input === "bye") {
+setTimeout(() => {
+toggleChatbot();
+}, 2000);
+return "Portfolio_Bot: Bye! Have A Nice Day. Visit again to learn more about Anshdeep Singh!";
+}
+else {
+return "Portfolio_Bot: Sorry! I Don't Understand. Try asking about: skills, projects, education, certifications, contact, or experience.";
+}
+}
+
+function sendMessage() {
+const input = document.getElementById('chatbotInput');
+const message = input.value.trim();
+if (!message) return;
+
+addMessage(message, true);
+input.value = '';
+
+// Simulate typing delay
+setTimeout(() => {
+const response = getChatbotResponse(message);
+addMessage(response, false);
+}, 500);
+}
+
+function sendSuggestion(suggestion) {
+document.getElementById('chatbotInput').value = suggestion;
+sendMessage();
+}
+
+function handleKeyPress(event) {
+if (event.key === 'Enter') {
+sendMessage();
+}
 }
 </script>
 </body>

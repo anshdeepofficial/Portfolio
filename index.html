@@ -1532,11 +1532,11 @@
       <div class="resume-grid">
         <div class="resume-title-box fade-in">
           <h2 class="resume-title hero-heading">Resume</h2>
-          <a class="resume-download-btn" id="downloadResumeBtn" href="RESUME_PDF_URL_HERE" download target="_blank" rel="noreferrer">
+          <a class="resume-download-btn" id="downloadResumeBtn" href="RESUME.pdf" download="Anshdeep-Singh-Resume.pdf">
             Download Resume
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
           </a>
-          <p class="resume-download-note">Replace <strong>RESUME_PDF_URL_HERE</strong> with your GitHub PDF raw URL later.</p>
+          <p class="resume-download-note">Keep <strong>RESUME.pdf</strong> in the repository root for direct one-click download.</p>
         </div>
         <div class="resume-cards">
           <article class="resume-card fade-in" style="--fade-delay:100ms;">
@@ -1655,7 +1655,7 @@
   </main>
 
   <script>
-    const RESUME_PDF_URL = 'RESUME_PDF_URL_HERE';
+    const RESUME_PDF_URL = 'RESUME.pdf';
 
     const techStack = [
       'HTML',
@@ -2235,14 +2235,20 @@
       const button = document.getElementById('downloadResumeBtn');
       if (!button) return;
 
-      if (RESUME_PDF_URL && RESUME_PDF_URL !== 'RESUME_PDF_URL_HERE') {
-        button.href = RESUME_PDF_URL;
-        return;
-      }
-
       button.addEventListener('click', (event) => {
+        if (!RESUME_PDF_URL) {
+          event.preventDefault();
+          alert('Resume PDF URL is not configured.');
+          return;
+        }
+
         event.preventDefault();
-        alert('Resume PDF URL is not added yet. Upload your resume PDF to GitHub, then replace RESUME_PDF_URL_HERE with the PDF link.');
+        const directDownload = document.createElement('a');
+        directDownload.href = RESUME_PDF_URL;
+        directDownload.download = 'Anshdeep-Singh-Resume.pdf';
+        document.body.appendChild(directDownload);
+        directDownload.click();
+        directDownload.remove();
       });
     }
 

@@ -1453,7 +1453,7 @@
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <a href="#chatbotPanel" data-chat-open>Chat</a>
+          <a href="#chatbotPanel" data-chat-open aria-controls="chatbotPanel">Chat</a>
         </div>
       </nav>
 
@@ -1648,7 +1648,7 @@
         <button class="chat-chip" type="button" data-chat-chip="education">Education</button>
       </div>
       <form class="chatbot-form" id="chatbotForm">
-        <input class="chatbot-input" id="chatbotInput" type="text" placeholder="Ask about skills, projects, contact..." autocomplete="off" />
+        <input class="chatbot-input" id="chatbotInput" type="text" placeholder="Ask about skills, projects, contact..." autocomplete="off" aria-label="Chat message input" />
         <button class="chatbot-send" type="submit">Send</button>
       </form>
     </section>
@@ -1657,6 +1657,7 @@
   <script>
     const RESUME_PDF_URL = 'RESUME.pdf';
     const CHATBOT_GREETING_PATTERN = /^(hi|hello|hey)([\s!,.].*)?$/;
+    const CHATBOT_WELCOME_MESSAGE = "Hi! I'm the portfolio chatbot. Ask me about Anshdeep's skills, projects, education, or contact details.";
 
     const techStack = [
       'HTML',
@@ -2340,7 +2341,7 @@
         panel.setAttribute('aria-hidden', 'false');
         toggle.setAttribute('aria-expanded', 'true');
         if (!messages.children.length) {
-          addMessage('bot', "Hi! I'm the portfolio chatbot. Ask me about Anshdeep's skills, projects, education, or contact details.");
+          addMessage('bot', CHATBOT_WELCOME_MESSAGE);
         }
         input.focus();
       };

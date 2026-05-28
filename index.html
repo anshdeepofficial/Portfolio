@@ -1453,7 +1453,7 @@
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
-          <a href="#chatbot" data-chat-open>Chat</a>
+          <a href="#chatbotPanel" data-chat-open>Chat</a>
         </div>
       </nav>
 
@@ -2274,7 +2274,7 @@
     function getChatbotReply(message) {
       const text = message.toLowerCase().trim();
 
-      if (['hi', 'hello', 'hey'].includes(text)) {
+      if (text === 'hi' || text === 'hello' || text === 'hey' || text.startsWith('hi ') || text.startsWith('hello ') || text.startsWith('hey ')) {
         return "Hello! I'm Anshdeep's portfolio assistant. Ask me about skills, projects, education, or contact details.";
       }
       if (text.includes('skill')) {
@@ -2298,8 +2298,11 @@
       if (text.includes('linkedin')) {
         return 'LinkedIn: https://www.linkedin.com/in/anshdeep-singh-editor';
       }
-      if (text === 'bye' || text === 'thanks' || text === 'thank you') {
-        return 'You are welcome. Feel free to ask anytime!';
+      if (text === 'bye') {
+        return 'Goodbye! Feel free to open chat again anytime.';
+      }
+      if (text === 'thanks' || text === 'thank you') {
+        return "You're welcome! Feel free to ask anytime.";
       }
       return "I can help with: skills, projects, education, certifications, and contact details. Try one of those.";
     }
@@ -2313,7 +2316,10 @@
       const input = document.getElementById('chatbotInput');
       const chipButtons = document.querySelectorAll('[data-chat-chip]');
       const openLinks = document.querySelectorAll('[data-chat-open]');
-      if (!panel || !toggle || !close || !messages || !form || !input) return;
+      if (!panel || !toggle || !close || !messages || !form || !input) {
+        console.warn('Chatbot setup skipped: required chatbot elements were not found in the DOM.');
+        return;
+      }
 
       const addMessage = (role, text) => {
         const line = document.createElement('div');

@@ -47,6 +47,8 @@ Portfolio/
    ```
 3. Launch the website by opening `index.html` in your browser.
 
+> Keep `RESUME.pdf` in the repository root so the **Download Resume** button can download it directly.
+
 ## Terminal Chatbot
 
 Run the chatbot script:
@@ -66,4 +68,3 @@ This repository is configured for GitHub Pages deployment through `.github/workf
 - **Email:** anshdeep200618@gmail.com
 - **GitHub:** https://github.com/Ansh200618
 - **LinkedIn:** https://www.linkedin.com/in/anshdeep-singh-editor
-

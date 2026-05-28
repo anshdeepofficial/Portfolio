@@ -1656,6 +1656,7 @@
 
   <script>
     const RESUME_PDF_URL = 'RESUME.pdf';
+    const CHATBOT_GREETING_PATTERN = /^(hi|hello|hey)([\s!,.].*)?$/;
 
     const techStack = [
       'HTML',
@@ -2235,15 +2236,6 @@
       const button = document.getElementById('downloadResumeBtn');
       if (!button) return;
 
-      if (!RESUME_PDF_URL) {
-        button.removeAttribute('href');
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          alert('Resume PDF URL is not configured.');
-        });
-        return;
-      }
-
       button.href = RESUME_PDF_URL;
       button.setAttribute('download', 'Anshdeep-Singh-Resume.pdf');
     }
@@ -2275,9 +2267,8 @@
 
     function getChatbotReply(message) {
       const text = message.toLowerCase().trim();
-      const greetingPattern = /^(hi|hello|hey)([\s!,.].*)?$/;
 
-      if (greetingPattern.test(text)) {
+      if (CHATBOT_GREETING_PATTERN.test(text)) {
         return "Hello! I'm Anshdeep's portfolio assistant. Ask me about skills, projects, education, or contact details.";
       }
       if (text.includes('skill')) {

@@ -2273,8 +2273,9 @@
 
     function getChatbotReply(message) {
       const text = message.toLowerCase().trim();
+      const greetings = ['hi', 'hello', 'hey'];
 
-      if (text === 'hi' || text === 'hello' || text === 'hey' || text.startsWith('hi ') || text.startsWith('hello ') || text.startsWith('hey ')) {
+      if (greetings.some((greeting) => text === greeting || text.startsWith(`${greeting} `))) {
         return "Hello! I'm Anshdeep's portfolio assistant. Ask me about skills, projects, education, or contact details.";
       }
       if (text.includes('skill')) {
@@ -2317,7 +2318,18 @@
       const chipButtons = document.querySelectorAll('[data-chat-chip]');
       const openLinks = document.querySelectorAll('[data-chat-open]');
       if (!panel || !toggle || !close || !messages || !form || !input) {
-        console.warn('Chatbot setup skipped: required chatbot elements were not found in the DOM.');
+        const missingElements = [
+          ['#chatbotPanel', panel],
+          ['#chatbotToggle', toggle],
+          ['#chatbotClose', close],
+          ['#chatbotMessages', messages],
+          ['#chatbotForm', form],
+          ['#chatbotInput', input]
+        ]
+          .filter(([, element]) => !element)
+          .map(([selector]) => selector)
+          .join(', ');
+        console.warn(`Chatbot setup skipped: missing required elements ${missingElements}.`);
         return;
       }
 

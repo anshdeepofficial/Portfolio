@@ -2235,21 +2235,17 @@
       const button = document.getElementById('downloadResumeBtn');
       if (!button) return;
 
-      button.addEventListener('click', (event) => {
-        if (!RESUME_PDF_URL) {
+      if (!RESUME_PDF_URL) {
+        button.removeAttribute('href');
+        button.addEventListener('click', (event) => {
           event.preventDefault();
           alert('Resume PDF URL is not configured.');
-          return;
-        }
+        });
+        return;
+      }
 
-        event.preventDefault();
-        const directDownload = document.createElement('a');
-        directDownload.href = RESUME_PDF_URL;
-        directDownload.download = 'Anshdeep-Singh-Resume.pdf';
-        document.body.appendChild(directDownload);
-        directDownload.click();
-        directDownload.remove();
-      });
+      button.href = RESUME_PDF_URL;
+      button.setAttribute('download', 'Anshdeep-Singh-Resume.pdf');
     }
 
     function setupContactModal() {
@@ -2279,9 +2275,9 @@
 
     function getChatbotReply(message) {
       const text = message.toLowerCase().trim();
-      const greetings = ['hi', 'hello', 'hey'];
+      const greetingPattern = /^(hi|hello|hey)([\s!,.].*)?$/;
 
-      if (greetings.some((greeting) => text === greeting || text.startsWith(`${greeting} `))) {
+      if (greetingPattern.test(text)) {
         return "Hello! I'm Anshdeep's portfolio assistant. Ask me about skills, projects, education, or contact details.";
       }
       if (text.includes('skill')) {
@@ -2305,10 +2301,10 @@
       if (text.includes('linkedin')) {
         return 'LinkedIn: https://www.linkedin.com/in/anshdeep-singh-editor';
       }
-      if (text === 'bye') {
+      if (text.includes('bye')) {
         return 'Goodbye! Feel free to open chat again anytime.';
       }
-      if (text === 'thanks' || text === 'thank you') {
+      if (text.includes('thanks') || text.includes('thank you')) {
         return "You're welcome! Feel free to ask anytime.";
       }
       return "I can help with: skills, projects, education, certifications, and contact details. Try one of those.";
@@ -2324,7 +2320,7 @@
       const chipButtons = document.querySelectorAll('[data-chat-chip]');
       const openLinks = document.querySelectorAll('[data-chat-open]');
       if (!panel || !toggle || !close || !messages || !form || !input) {
-        const missingElements = [
+        const missingSelectors = [
           ['#chatbotPanel', panel],
           ['#chatbotToggle', toggle],
           ['#chatbotClose', close],
@@ -2335,7 +2331,7 @@
           .filter(([, element]) => !element)
           .map(([selector]) => selector)
           .join(', ');
-        console.warn(`Chatbot setup skipped: missing required elements ${missingElements}.`);
+        console.warn(`Chatbot setup skipped: missing required elements ${missingSelectors}.`);
         return;
       }
 

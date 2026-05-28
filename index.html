@@ -148,6 +148,34 @@
       letter-spacing: 0.08em;
     }
 
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-brand-logo {
+      display: inline-grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      border: 1px solid rgba(215, 226, 234, 0.45);
+      background: linear-gradient(135deg, rgba(182, 0, 168, 0.52), rgba(118, 33, 176, 0.48));
+      color: white;
+      font-size: 0.74rem;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
     .navbar a {
       transition: opacity 200ms ease;
     }
@@ -1101,6 +1129,161 @@
       letter-spacing: 0.14em;
     }
 
+    .chatbot-toggle {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 60;
+      border: 1px solid rgba(215, 226, 234, 0.35);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(182, 0, 168, 0.88), rgba(118, 33, 176, 0.95));
+      color: white;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.72rem 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 16px 42px rgba(58, 0, 74, 0.45);
+    }
+
+    .chatbot-panel {
+      position: fixed;
+      right: 1.25rem;
+      bottom: 4.9rem;
+      width: min(92vw, 360px);
+      max-height: min(72vh, 560px);
+      display: flex;
+      flex-direction: column;
+      border-radius: 18px;
+      border: 1px solid rgba(215, 226, 234, 0.25);
+      background: linear-gradient(160deg, rgba(20, 20, 22, 0.98), rgba(8, 8, 8, 0.98));
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.48);
+      z-index: 70;
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 220ms ease, transform 220ms ease;
+      overflow: hidden;
+    }
+
+    .chatbot-panel.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .chatbot-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      padding: 0.85rem 0.95rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .chatbot-head h3 {
+      margin: 0;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .chatbot-close {
+      border: 0;
+      background: transparent;
+      color: rgba(215, 226, 234, 0.9);
+      font-size: 1.2rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.2rem 0.3rem;
+    }
+
+    .chatbot-messages {
+      padding: 0.85rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.58rem;
+      min-height: 220px;
+    }
+
+    .chat-line {
+      max-width: 88%;
+      padding: 0.62rem 0.72rem;
+      border-radius: 12px;
+      font-size: 0.81rem;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+      overflow-wrap: anywhere;
+    }
+
+    .chat-line.bot {
+      align-self: flex-start;
+      background: rgba(215, 226, 234, 0.1);
+      color: rgba(237, 242, 246, 0.95);
+    }
+
+    .chat-line.user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, rgba(182, 0, 168, 0.88), rgba(118, 33, 176, 0.95));
+      color: white;
+    }
+
+    .chatbot-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding: 0 0.85rem 0.7rem;
+    }
+
+    .chat-chip {
+      border: 1px solid rgba(215, 226, 234, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.62rem;
+      cursor: pointer;
+    }
+
+    .chatbot-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      padding: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .chatbot-input {
+      border: 1px solid rgba(215, 226, 234, 0.2);
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.36);
+      color: white;
+      padding: 0.62rem 0.75rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+    }
+
+    .chatbot-send {
+      border: 1px solid rgba(215, 226, 234, 0.3);
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(182, 0, 168, 0.88), rgba(118, 33, 176, 0.95));
+      color: white;
+      font-family: inherit;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.62rem 0.85rem;
+      cursor: pointer;
+    }
+
     body.contact-modal-open {
       overflow: hidden;
     }
@@ -1156,6 +1339,16 @@
         padding-inline: 1rem;
         font-size: 0.78rem;
         letter-spacing: 0.06em;
+      }
+
+      .nav-brand-text {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 0.65rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       .hero-title {
@@ -1218,6 +1411,18 @@
         grid-template-columns: 1fr;
       }
 
+      .chatbot-toggle {
+        right: 0.85rem;
+        bottom: 0.9rem;
+      }
+
+      .chatbot-panel {
+        right: 0.6rem;
+        left: 0.6rem;
+        width: auto;
+        bottom: 4.65rem;
+      }
+
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1239,10 +1444,17 @@
   <main class="page">
     <section class="hero" id="home">
       <nav class="navbar fade-in" style="--fade-y:-20px; --fade-delay:0ms;">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a class="nav-brand" href="#home" aria-label="Anshdeep Singh portfolio home">
+          <span class="nav-brand-logo" aria-hidden="true">AS</span>
+          <span class="nav-brand-text">Anshdeep</span>
+        </a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="#chatbotPanel" data-chat-open aria-controls="chatbotPanel">Chat</a>
+        </div>
       </nav>
 
       <div class="hero-title-wrap fade-in" style="--fade-y:40px; --fade-delay:150ms;">
@@ -1320,11 +1532,11 @@
       <div class="resume-grid">
         <div class="resume-title-box fade-in">
           <h2 class="resume-title hero-heading">Resume</h2>
-          <a class="resume-download-btn" id="downloadResumeBtn" href="RESUME_PDF_URL_HERE" download target="_blank" rel="noreferrer">
+          <a class="resume-download-btn" id="downloadResumeBtn" href="RESUME.pdf" download="Anshdeep-Singh-Resume.pdf">
             Download Resume
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
           </a>
-          <p class="resume-download-note">Replace <strong>RESUME_PDF_URL_HERE</strong> with your GitHub PDF raw URL later.</p>
+          <p class="resume-download-note">Keep <strong>RESUME.pdf</strong> in the repository root for direct one-click download.</p>
         </div>
         <div class="resume-cards">
           <article class="resume-card fade-in" style="--fade-delay:100ms;">
@@ -1421,10 +1633,31 @@
         <a class="contact-modal-bottom" href="#contact" data-close-contact>View full contact section</a>
       </div>
     </div>
+
+    <button class="chatbot-toggle" id="chatbotToggle" type="button" aria-controls="chatbotPanel" aria-expanded="false">Chat</button>
+    <section class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+      <div class="chatbot-head">
+        <h3>Portfolio Chatbot</h3>
+        <button class="chatbot-close" type="button" id="chatbotClose" aria-label="Close chatbot">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages" aria-live="polite"></div>
+      <div class="chatbot-chips">
+        <button class="chat-chip" type="button" data-chat-chip="skills">Skills</button>
+        <button class="chat-chip" type="button" data-chat-chip="projects">Projects</button>
+        <button class="chat-chip" type="button" data-chat-chip="contact">Contact</button>
+        <button class="chat-chip" type="button" data-chat-chip="education">Education</button>
+      </div>
+      <form class="chatbot-form" id="chatbotForm">
+        <input class="chatbot-input" id="chatbotInput" type="text" placeholder="Ask about skills, projects, contact..." autocomplete="off" aria-label="Chat message input" />
+        <button class="chatbot-send" type="submit">Send</button>
+      </form>
+    </section>
   </main>
 
   <script>
-    const RESUME_PDF_URL = 'RESUME_PDF_URL_HERE';
+    const RESUME_PDF_URL = 'RESUME.pdf';
+    const CHATBOT_GREETING_PATTERN = /^(hi|hello|hey)([\s!,.].*)?$/;
+    const CHATBOT_WELCOME_MESSAGE = "Hi! I'm the portfolio chatbot. Ask me about Anshdeep's skills, projects, education, or contact details.";
 
     const techStack = [
       'HTML',
@@ -2004,15 +2237,8 @@
       const button = document.getElementById('downloadResumeBtn');
       if (!button) return;
 
-      if (RESUME_PDF_URL && RESUME_PDF_URL !== 'RESUME_PDF_URL_HERE') {
-        button.href = RESUME_PDF_URL;
-        return;
-      }
-
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        alert('Resume PDF URL is not added yet. Upload your resume PDF to GitHub, then replace RESUME_PDF_URL_HERE with the PDF link.');
-      });
+      button.href = RESUME_PDF_URL;
+      button.setAttribute('download', 'Anshdeep-Singh-Resume.pdf');
     }
 
     function setupContactModal() {
@@ -2040,6 +2266,127 @@
       });
     }
 
+    function getChatbotReply(message) {
+      const text = message.toLowerCase().trim();
+
+      if (CHATBOT_GREETING_PATTERN.test(text)) {
+        return "Hello! I'm Anshdeep's portfolio assistant. Ask me about skills, projects, education, or contact details.";
+      }
+      if (text.includes('skill')) {
+        return 'Anshdeep works with HTML, CSS, JavaScript, TypeScript, Tailwind CSS, SQL, Python, UI/UX design, and video editing.';
+      }
+      if (text.includes('project')) {
+        return 'Featured projects include Copy Cloud, TubeIQ, Portfolio, WatchVault, and MindVault AI. You can explore them in the Projects section.';
+      }
+      if (text.includes('education')) {
+        return 'Anshdeep is pursuing BCA in Data Science (Hons. with Research) at Chandigarh University.';
+      }
+      if (text.includes('certification') || text.includes('certificate')) {
+        return 'Certifications include IBM, Coursera Responsive Web Design, and Design Thinking & Creativity for Innovation.';
+      }
+      if (text.includes('contact') || text.includes('email') || text.includes('phone')) {
+        return 'Contact: anshdeep200618@gmail.com | +91 97815 70098 | GitHub: Ansh200618 | LinkedIn: anshdeep-singh-editor';
+      }
+      if (text.includes('github')) {
+        return 'GitHub: https://github.com/Ansh200618';
+      }
+      if (text.includes('linkedin')) {
+        return 'LinkedIn: https://www.linkedin.com/in/anshdeep-singh-editor';
+      }
+      if (text.includes('bye')) {
+        return 'Goodbye! Feel free to open chat again anytime.';
+      }
+      if (text.includes('thanks') || text.includes('thank you')) {
+        return "You're welcome! Feel free to ask anytime.";
+      }
+      return "I can help with: skills, projects, education, certifications, and contact details. Try one of those.";
+    }
+
+    function setupWebsiteChatbot() {
+      const panel = document.getElementById('chatbotPanel');
+      const toggle = document.getElementById('chatbotToggle');
+      const close = document.getElementById('chatbotClose');
+      const messages = document.getElementById('chatbotMessages');
+      const form = document.getElementById('chatbotForm');
+      const input = document.getElementById('chatbotInput');
+      const chipButtons = document.querySelectorAll('[data-chat-chip]');
+      const openLinks = document.querySelectorAll('[data-chat-open]');
+      if (!panel || !toggle || !close || !messages || !form || !input) {
+        const missingSelectors = [
+          ['#chatbotPanel', panel],
+          ['#chatbotToggle', toggle],
+          ['#chatbotClose', close],
+          ['#chatbotMessages', messages],
+          ['#chatbotForm', form],
+          ['#chatbotInput', input]
+        ]
+          .filter(([, element]) => !element)
+          .map(([selector]) => selector)
+          .join(', ');
+        console.warn(`Chatbot setup skipped: missing required elements ${missingSelectors}.`);
+        return;
+      }
+
+      const addMessage = (role, text) => {
+        const line = document.createElement('div');
+        line.className = `chat-line ${role}`;
+        line.textContent = text;
+        messages.appendChild(line);
+        messages.scrollTop = messages.scrollHeight;
+      };
+
+      const open = (event) => {
+        if (event) event.preventDefault();
+        panel.classList.add('active');
+        panel.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (!messages.children.length) {
+          addMessage('bot', CHATBOT_WELCOME_MESSAGE);
+        }
+        input.focus();
+      };
+
+      const closePanel = () => {
+        panel.classList.remove('active');
+        panel.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+      };
+
+      const handlePrompt = (text) => {
+        const clean = text.trim();
+        if (!clean) return;
+        addMessage('user', clean);
+        addMessage('bot', getChatbotReply(clean));
+      };
+
+      toggle.addEventListener('click', () => {
+        if (panel.classList.contains('active')) {
+          closePanel();
+          return;
+        }
+        open();
+      });
+
+      close.addEventListener('click', closePanel);
+      openLinks.forEach((link) => link.addEventListener('click', open));
+      chipButtons.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          open();
+          handlePrompt(chip.dataset.chatChip || '');
+        });
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        handlePrompt(input.value);
+        input.value = '';
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && panel.classList.contains('active')) closePanel();
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       runPortfolioDataTests();
       renderMarquee();
@@ -2053,6 +2400,7 @@
       setupMarqueeScroll();
       setupAnimatedText();
       setupProjectStacking();
+      setupWebsiteChatbot();
     });
   </script>
 </body>

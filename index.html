@@ -6,7 +6,8 @@
   <meta name="description" content="Anshdeep Singh - Developer and creative web designer portfolio featuring front-end development, UI/UX, SQL, JavaScript, Supabase, GitHub projects, certifications, and BCA Data Science details." />
   <meta name="keywords" content="Anshdeep Singh, Anshdeep portfolio, web developer, front-end developer, UI UX designer, JavaScript, TypeScript, React, Tailwind CSS, Supabase, SQL, GitHub projects, BCA Data Science" />
   <meta name="author" content="Anshdeep Singh" />
-  <title>Anshdeep Singh -- Developer Portfolio</title>
+  <title>Anshdeep Singh</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,6 +81,16 @@
     .fade-in.visible {
       opacity: 1;
       transform: translate3d(0, 0, 0);
+    }
+
+    /* Keep the centered hero portrait wrap centered; only fade opacity. */
+    .hero-portrait-wrap.fade-in {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + var(--fade-y, 30px)));
+    }
+    .hero-portrait-wrap.fade-in.visible {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
 
     .contact-btn {
@@ -1302,9 +1313,9 @@
       }
 
       .hero-portrait-wrap {
-        top: auto;
-        bottom: 0;
-        transform: translateX(-50%);
+        top: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
       }
     }
 
@@ -1624,11 +1635,11 @@
         <p class="contact-modal-label">Contact Details</p>
         <h3 id="contactModalTitle">Contact Anshdeep Singh</h3>
         <div class="contact-modal-links">
-          <a href="mailto:anshdeep200618@gmail.com"><span>Email</span><strong>anshdeep200618@gmail.com</strong></a>
+          <a href="mailto:anshdeepofficial1@gmail.com"><span>Email</span><strong>anshdeepofficial1@gmail.com</strong></a>
           <a href="tel:+919781570098"><span>Mobile</span><strong>+91 97815 70098</strong></a>
-          <a href="https://www.instagram.com/itsanshdeepofficial" target="_blank" rel="noreferrer"><span>Instagram</span><strong>@itsanshdeepofficial</strong></a>
-          <a href="https://www.linkedin.com/in/anshdeep-singh-editor" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>anshdeep-singh-editor</strong></a>
-          <a href="https://github.com/Ansh200618" target="_blank" rel="noreferrer"><span>GitHub</span><strong>Ansh200618</strong></a>
+          <a href="https://www.instagram.com/anshdeep_officiall" target="_blank" rel="noreferrer"><span>Instagram</span><strong>@anshdeep_officiall</strong></a>
+          <a href="https://www.linkedin.com/in/itsanshdeepofficial/" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>itsanshdeepofficial</strong></a>
+          <a href="https://github.com/anshdeepofficial/" target="_blank" rel="noreferrer"><span>GitHub</span><strong>anshdeepofficial</strong></a>
         </div>
         <a class="contact-modal-bottom" href="#contact" data-close-contact>View full contact section</a>
       </div>
@@ -1801,34 +1812,6 @@
       },
       {
         no: '05',
-        name: 'WatchVault',
-        category: 'Entertainment Tracker',
-        description: 'An entertainment tracking project concept for managing movies, series, anime, watch progress, legal metadata, seasons, episodes, and premium content discovery screens.',
-        tech: ['TypeScript', 'Product UI', 'Tracking Logic', 'Web App'],
-        github: 'https://github.com/Ansh200618/WatchVault',
-        live: 'https://github.com/Ansh200618/WatchVault',
-        images: [
-          'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?q=80&w=1600&auto=format&fit=crop'
-        ]
-      },
-      {
-        no: '06',
-        name: 'MindVault AI',
-        category: 'AI Productivity Project',
-        description: 'An AI-focused project repository exploring a vault-style productivity or knowledge-management experience for storing, organizing, and interacting with useful information.',
-        tech: ['AI', 'JavaScript', 'Productivity', 'Web App'],
-        github: 'https://github.com/Ansh200618/MindVault-AI',
-        live: 'https://github.com/Ansh200618/MindVault-AI',
-        images: [
-          'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop'
-        ]
-      },
-      {
-        no: '07',
         name: 'SnapStream',
         category: 'Image Utility Web App',
         description: 'A JavaScript utility app that helps users discover, filter, and download images from websites with a clean and creator-focused workflow.',
@@ -1842,7 +1825,7 @@
         ]
       },
       {
-        no: '08',
+        no: '06',
         name: 'FuelTracker',
         category: 'Tracking Utility Project',
         description: 'A fuel tracking project repository focused on recording, managing, and reviewing fuel-related data through a practical utility-style application interface.',
@@ -1856,21 +1839,7 @@
         ]
       },
       {
-        no: '09',
-        name: 'PowerHouse',
-        category: 'Web Project Repository',
-        description: 'A GitHub web project repository built around a strong visual identity and interface structure, designed as part of a practical personal development workflow.',
-        tech: ['HTML', 'CSS', 'JavaScript', 'Web Design'],
-        github: 'https://github.com/Ansh200618/PowerHouse',
-        live: 'https://github.com/Ansh200618/PowerHouse',
-        images: [
-          'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=1200&auto=format&fit=crop',
-          'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop'
-        ]
-      },
-      {
-        no: '10',
+        no: '07',
         name: 'About Me',
         category: 'Profile Website',
         description: 'A simple personal profile repository designed to introduce identity, interests, skills, and basic developer information in a clean web format.',
@@ -1884,7 +1853,7 @@
         ]
       },
       {
-        no: '11',
+        no: '08',
         name: 'DEEPFAKE',
         category: 'AI Media Repository',
         description: 'An AI/media-focused repository exploring deepfake-related concepts, media processing, or research-oriented experimentation within a GitHub project workflow.',
@@ -1898,7 +1867,7 @@
         ]
       },
       {
-        no: '12',
+        no: '09',
         name: 'To-Do List',
         category: 'Task Management App',
         description: 'A task management application for creating, organizing, and managing daily tasks, built as a practical project to demonstrate app logic and user interaction.',
@@ -1912,7 +1881,7 @@
         ]
       },
       {
-        no: '13',
+        no: '10',
         name: 'Task Management Website',
         category: 'Productivity Website',
         description: 'A web-based task management project for organizing work, creating task lists, and practicing modern HTML, CSS, and JavaScript interface development.',
@@ -1926,7 +1895,7 @@
         ]
       },
       {
-        no: '14',
+        no: '11',
         name: 'Employee Payroll Management System',
         category: 'Database Management Project',
         description: 'A payroll and employee management system project focused on employee records, salary handling, attendance-style data, and database-backed management workflows.',
@@ -1940,7 +1909,7 @@
         ]
       },
       {
-        no: '15',
+        no: '12',
         name: 'Airplane Management System',
         category: 'C++ OOP Project',
         description: 'A C++ console-based management system project demonstrating object-oriented programming concepts, structured logic, and practical system design fundamentals.',
@@ -1954,7 +1923,7 @@
         ]
       },
       {
-        no: '16',
+        no: '13',
         name: 'Weather Data Analysis',
         category: 'R Data Analysis Project',
         description: 'A weather analytics repository using R for data processing, visualization, statistical analysis, and trend discovery across temperature and humidity data.',
@@ -1968,7 +1937,7 @@
         ]
       },
       {
-        no: '17',
+        no: '14',
         name: 'Snake Game',
         category: 'Console Game Project',
         description: 'A classic Snake Game project built to practice game loops, score tracking, movement control, collision logic, and console-based programming fundamentals.',
@@ -1986,12 +1955,9 @@
     const githubProjects = [
       'darkanimewalls',
       'Copy-Cloud',
-      'WatchVault',
-      'MindVault-AI',
       'TubeIQ',
       'DEEPFAKE',
       'FuelTracker',
-      'PowerHouse',
       'About-Me',
       'SnapStream',
       'Portfolio',
@@ -2009,11 +1975,11 @@
 
     function runPortfolioDataTests() {
       const errors = [];
-      if (projects.length !== 17) errors.push('Expected exactly 17 GitHub project cards.');
+      if (projects.length !== 14) errors.push('Expected exactly 14 GitHub project cards.');
       if (skills.length !== 5) errors.push('Expected exactly 5 skill/service items.');
       if (techStack.length !== 14) errors.push('Expected exactly 14 tech stack items.');
       if (githubStats.length !== 6) errors.push('Expected exactly 6 GitHub/stat cards.');
-      if (githubProjects.length !== 17) errors.push('Expected exactly 17 repository chips.');
+      if (githubProjects.length !== 14) errors.push('Expected exactly 14 repository chips.');
       if (!'anshdeep200618@gmail.com'.includes('@')) errors.push('Expected a valid email address.');
       if (!RESUME_PDF_URL) errors.push('Expected a resume PDF URL placeholder or URL.');
 
@@ -2074,7 +2040,10 @@
 
     function renderProjects() {
       const container = document.getElementById('projectsWrap');
-      container.innerHTML = projects.map((project, index) => `
+      const INITIAL = 4;
+      const expanded = container.dataset.expanded === 'true';
+      const list = expanded ? projects : projects.slice(0, INITIAL);
+      const cards = list.map((project, index) => `
         <div class="project-spacer" data-project-index="${index}">
           <article class="project-card" style="top: calc(6rem + ${index * 28}px);">
             <div class="project-top">
@@ -2092,16 +2061,28 @@
             </div>
             <p class="project-desc">${project.description}</p>
             <div class="project-tags">${project.tech.map(tag => `<span class="project-tag">${tag}</span>`).join('')}</div>
-            <div class="project-grid">
-              <div class="project-left">
-                <img class="project-img small" src="${project.images[0]}" alt="${project.name} preview one" loading="lazy">
-                <img class="project-img medium" src="${project.images[1]}" alt="${project.name} preview two" loading="lazy">
-              </div>
-              <img class="project-img large" src="${project.images[2]}" alt="${project.name} preview three" loading="lazy">
-            </div>
           </article>
         </div>
       `).join('');
+      const remaining = projects.length - INITIAL;
+      const toggleBtn = projects.length > INITIAL
+        ? `<div style="display:flex;justify-content:center;margin:2.5rem 0 1rem;position:relative;z-index:5;">
+             <button id="projectsToggleBtn" type="button" class="ghost-btn" style="cursor:pointer;font-family:inherit;">
+               ${expanded ? 'Show less' : `Show all projects (${remaining} more)`}
+             </button>
+           </div>`
+        : '';
+      container.innerHTML = cards + toggleBtn;
+      const btn = document.getElementById('projectsToggleBtn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          container.dataset.expanded = expanded ? 'false' : 'true';
+          renderProjects();
+          if (expanded) {
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
     }
 
     function renderRepos() {
@@ -2146,11 +2127,7 @@
             element.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
           } else {
             element.style.transition = 'transform 0.6s ease-in-out';
-            if (window.innerWidth >= 768) {
-              element.style.transform = 'translateX(-50%)';
-            } else {
-              element.style.transform = 'translate(-50%, -50%)';
-            }
+            element.style.transform = 'translate(-50%, -50%)';
           }
         });
       }, { passive: true });
